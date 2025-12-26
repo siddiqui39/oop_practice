@@ -6,16 +6,21 @@ class User:
         self._email = email
         self._password = password
 
+    @property
+    def email(self):
+        return self._email
+
     def get_email(self):
         print(f"Email accessed at {datetime.now()}")
         return self._email
 
     def set_email(self, new_email):
-        self._email = new_email
+        if "@" in new_email:
+            self._email = new_email
 
     def get_password(self):
         print(f"Password accessed at {datetime.now()}")
-        return self.password
+        return self._password
 
     def set_password(self, new_password):
         self._password = new_password
